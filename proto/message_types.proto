@@ -1,0 +1,31 @@
+// Protocol buffer definitions for message types.
+
+message TransportEnvelope {
+  enum MessageType {
+	CreateFileRequest = 1;
+  }
+  
+  // The type of the message carried in the message_bytes field.
+  required MessageType message_type = 1;
+  
+  // A serialized message of the type indicated in message_type.
+  required bytes message_bytes = 2; 
+}
+
+// The request to create a file.
+message CreateFileRequest {
+  // The name of the file to create.
+  required string file_name = 1; 
+}
+
+// Response to CreateFile.
+message CreateFileResponse {
+  // Set to true if the request succeeded, false otherwise.
+  required bool ok = 1;
+  
+  // The status code returned.
+  required uint32 status_code = 2;
+  
+  // Human readable status message.
+  optional string status_msg = 3;  
+}

@@ -6,7 +6,7 @@ main();
 
 sub main {
     
-    $classpath = "proj/:jars/plume.jar:jars/lib.jar";
+    $classpath = "proj/:jars/plume.jar:jars/lib.jar:jars/protobuf-java-2.3.0.jar";
     
     $args = join " ", @ARGV;
 
